@@ -88,7 +88,7 @@ class ParserSecondsEvents
         two = array[1].to_s
         h1, m1, s1 = one.split(":").map(&:to_f)
         h2, m2, s2 = two.split(":").map(&:to_f)
-        ((h2 - h1) * 3600 + (m2 - m1) * 60 + (s2 - s1)).round(2).to_s
+        ((h2 - h1) * 3600 + (m2 - m1) * 60 + (s2 - s1)).round(2)
     end
 
     require 'time'
