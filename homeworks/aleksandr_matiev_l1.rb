@@ -22,7 +22,7 @@ def task_1(input)
   result = []
   input.each_line do |x|  
   if x.downcase.include?("error")
-    result << x
+    result << x[0 ..-2]
     end
   end
   result
