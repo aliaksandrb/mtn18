@@ -150,17 +150,17 @@ end
 
 # check task1
 
-def task1(text)
+def task_1(text)
     pl = ParserLogs.new(text)
     pl.output_state
 end
 
 # check task2
 
-#def task2(text)
-#    pse = ParserSecondsEvents.new(text)
-#    pse.parse_logs
-#end
+def task_2(text)
+    pse = ParserSecondsEvents.new(text)
+    pse.parse_logs
+end
 
 # check task3
 
