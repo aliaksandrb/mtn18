@@ -22,13 +22,13 @@ text = %Q(10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages H
 10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290)
 
 def task_1(input)
-  result = []
+  result = ''
   input.each_line do |line|
       if (line.downcase.include? "error")
         result << line
       end
     end
-  result.to_s
+  result
 end
 
 def task_2(input)
@@ -38,7 +38,7 @@ def task_2(input)
         result << (line[/\[(.*?)\]/][1...-1] + " FROM " + line[/(?:\d{1,3}\.){3}\d{1,3}/] + " to " + line.split(/\s/)[6]).upcase
       end
     end
-  result.to_s
+  result
 end
 
 task_1(text)
