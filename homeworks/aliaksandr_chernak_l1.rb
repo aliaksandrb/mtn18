@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 # develop by Aliaksandr Chernak
 
-def task1(logs)
+def task_1(logs)
   result_error = []
   logs.each_line { |log| result_error << log if log.downcase.include? 'error' }
   result_error
 end
 
-def task2(logs)
+def task_2(logs)
   log_regex = %r{(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - \[([^\]]+?)\] "(GET|POST|PUT|DELETE) ([^\s]+?) (HTTP\/1\.1)" (\d+)}
   result_parse = []
   logs.each_line do |log|
@@ -21,7 +21,7 @@ def task2(logs)
 end
 
 require 'time'
-def task3(logs)
+def task_3(logs)
   log_regex = /(\d+-\d+-\d+ \d+:+\d+:\d+.\d) (\w+-\w+\[\d*\] \w+) - (\w+)/
   result_parse = []
   logs.each_line do |log|
@@ -34,7 +34,7 @@ def task3(logs)
   result_parse[1] - result_parse[0]
 end
 
-def task4(smth)
+def task_4(smth)
   sum = 0
   smth.each_char { |symb| sum += symb.to_i }
   sum
