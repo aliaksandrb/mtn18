@@ -34,7 +34,7 @@ end
 def task_2(input)
   result = []
   input.each_line do |line|
-    if (line.match(/(?:\d{1,3}\.){3}\d{1,3} - - \[(.*?)\] "POST \/.* HTTP/.*/))
+    if (line.match(/(?:\d{1,3}\.){3}\d{1,3} - - \[(.*?)\] "POST \/.* HTTP\/.*/))
       unless (line.downcase.include? "error")
         result << line[/\[(.*?)\]/][1...-1] + " FROM: " + line[/(?:\d{1,3}\.){3}\d{1,3}/] + " TO: " + line.split(/\s/)[6].upcase
       end
