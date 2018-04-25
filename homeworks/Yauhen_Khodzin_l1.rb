@@ -25,7 +25,7 @@ def task_1(input)
   result = ''
   input.each_line do |line|
       if (line.downcase.include? "error")
-        result << line
+        result << line[0..-2]
       end
     end
   result
