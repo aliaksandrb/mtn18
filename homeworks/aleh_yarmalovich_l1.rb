@@ -9,7 +9,7 @@ def task_1(input)
 end
 
 def task_2(input)
-  res = ''
+  res = []
   input.each_line do |line|
     unless line.downcase.include? 'error'
       pars = line.match %r/(\b(\d{1,3}\.){3}\d{1,3}).*(\[.*\]).*( \/.[^\s]*)/
