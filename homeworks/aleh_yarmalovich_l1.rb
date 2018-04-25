@@ -3,7 +3,6 @@ def task_1(input)
   input.each_line do |line|
     if line.downcase.include? 'error'
       res << line
-
     end
   end
   res
