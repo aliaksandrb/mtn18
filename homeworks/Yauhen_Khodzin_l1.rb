@@ -28,7 +28,7 @@ def task_1(input)
         result << line
       end
     end
-  result
+  result.to_s
 end
 
 def task_2(input)
@@ -38,7 +38,7 @@ def task_2(input)
         result << (line[/\[(.*?)\]/][1...-1] + " FROM " + line[/(?:\d{1,3}\.){3}\d{1,3}/] + " to " + line.split(/\s/)[6]).upcase
       end
     end
-  result
+  result.to_s
 end
 
 task_1(text)
