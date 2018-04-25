@@ -37,7 +37,7 @@ class ParserLogs
             end
         end
         #first + 
-        out.to_a
+        out.split('')
     end
 end
 
