@@ -167,7 +167,7 @@ end
 
 # check task3
 
-def task_4(text)
+def task_3(text)
     parse_string(text)
 end
 
