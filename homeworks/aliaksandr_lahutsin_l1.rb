@@ -33,8 +33,12 @@ class ParserLogs
                 #first << "#{i}"                 
                 #out << "#{i}"
             else
-                array = i.split(' ')
-                a.push(array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase)
+                i.each_line do |line|
+                    datetime = line.match(/\[(.*?)\]/)[1] 
+                    ip_addres = line.match(/^\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)
+                    endpoint_path = line.match(/"POST \/.*"/)[0].split[1].upcase
+                    a << "#{datetime} FROM: #{ip_addres} TO: #{endpoint_path}"
+                end
             end
         end
         #first + 
