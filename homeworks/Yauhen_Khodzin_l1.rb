@@ -45,3 +45,53 @@ end
 
 task_1(text)
 task_2(text)
+
+
+
+
+
+require 'time'
+text2 = %Q(
+2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
+2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
+2018-04-23 17:17:49.8 ubuntu-xenial[14319] Debug - docker event processed
+2018-04-23 17:18:19.5 ubuntu-xenial[14319] Debug - monitoring grid communication health
+2018-04-23 17:18:38.8 ubuntu-xenial[14319] Debug - Calling core with action: messages
+2018-04-23 17:18:38.8 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
+2018-04-23 18:18:38.8 ubuntu-xenial[14319] Debug - Calling core with action: messages
+2018-04-23 17:18:59.8 ubuntu-xenial[14319] Debug - inside docker_handle_event)
+
+def task_3(input)
+  time = Time.new('0')
+  result = []
+  input.each_line do |line|
+    if (line.downcase.include? "calling core with action")
+      if time == Time.new('0')
+        time = Time.parse(line.split(' ')[0..1].to_s)
+      else
+        result << (time - Time.parse(line.split(' ')[0..1].to_s)).abs
+        time = Time.parse(line.split(' ')[0..1].to_s)
+      end
+    end
+  end
+  result.first
+end
+task_3(text2)
+
+=begin
+3. Дана произвольная строка, в которой есть буквы, цифры, кони, лоси..
+Вывести на экран сумму всех цифр из данной строки. (вещественные числа, типа 3.14 рассматриваются как 3 числа)
+=end
+
+string = "asdasd3.14 asd 12345 7652"
+def task_4(input)
+  summ = 0
+  input.each_char do |chr|
+    if chr.to_i > 0 && chr.to_i <= 9
+      summ += chr.to_i
+    end
+  end
+  summ
+end
+
+task4(string)
