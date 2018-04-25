@@ -37,7 +37,7 @@ class ParserLogs
             end
         end
         #first + 
-        out
+        out.to_a
     end
 end
 
@@ -88,7 +88,7 @@ class ParserSecondsEvents
         two = array[1].to_s
         h1, m1, s1 = one.split(":").map(&:to_f)
         h2, m2, s2 = two.split(":").map(&:to_f)
-        "With calculation not-full time (%H:%M:%S): " + ((h2 - h1) * 3600 + (m2 - m1) * 60 + (s2 - s1)).round(2).to_s
+        ((h2 - h1) * 3600 + (m2 - m1) * 60 + (s2 - s1)).round(2).to_s
     end
 
     require 'time'
@@ -142,15 +142,13 @@ def task_4(text)
     parse_string(text)
 end
 
+=begin
 
 puts task_1('''10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
 10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
 2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>
 10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290
 ''')
-
-=begin
-
 puts task_2('''10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
 10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
 2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>
