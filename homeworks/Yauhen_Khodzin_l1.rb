@@ -46,10 +46,9 @@ end
 task_1(text)
 task_2(text)
 
-
-
-
-
+=begin
+Task2
+=end
 require 'time'
 text2 = %Q(
 2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
@@ -93,5 +92,4 @@ def task_4(input)
   end
   summ
 end
-
 task_4(string)
