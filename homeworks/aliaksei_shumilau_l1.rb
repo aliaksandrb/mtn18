@@ -1,22 +1,22 @@
 #######################################################
 #TASK1
 def task_1(input)
-  list = ''
-  input.each_line do |line|
-     if (line.downcase.include? 'error')
-       list << line[0..-2]
-     end
+  task1_list = ''
+  input.each_line do |lines|
+    task1_list << lines[0..-2] if (lines.downcase['error'])
   end
-  list
+  task1_list
 end
 ######################################################
 #TASK2
 def task_2(input)
-  list = []
-  input.each_line do |line|
-     list.push(line.split('[')[1].split(']')[0] + ' FROM: ' + line.split[0] + ' TO:' + line.upcase.split('POST')[1].split('HTTP')[0][0..-1]) if (line.downcase.match("^(?!.*error).*$"))
+  task2_list = []
+  input.each_line do |lines|
+    if (lines.match(/(?:\d{1,3}\.){3}\d{1,3} - - \[(.*?)\] "POST \/.* HTTP\/.*/))
+      task2_list << lines.split('[')[1].split(']')[0] + " FROM: " + lines.split[0] + " TO:" + lines.upcase.split('POST')[1].split('HTTP')[0][0..-2] if (lines.downcase.match("^(?!.*error).*$"))
+    end
   end
-  list
+  task2_list
 end
 
 ######################################################
