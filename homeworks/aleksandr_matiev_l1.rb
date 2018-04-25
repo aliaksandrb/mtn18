@@ -21,7 +21,7 @@ str33 = %Q(jks3.14gdfg456)
 def task_1(input)
   result = []
   input.each_line do |x|  
-  if x.downcase!.include?("error")
+  if x.downcase.include?("error")
     result << x
     end
   end
@@ -31,7 +31,7 @@ end
 def task_2(input)
   result = []
   input.each_line do |x|  
-  unless x.downcase!.include?("error")
+  unless x.downcase.include?("error")
     result << ( x[/\[(.*?)\]/][1 ..-2] + " FROM: " + x[/\d+\.\d+\.\d+\.\d+/] + " TO: " + x[/\s\/(.*?)\s/][1 ..-2].upcase!)
     end
   end
