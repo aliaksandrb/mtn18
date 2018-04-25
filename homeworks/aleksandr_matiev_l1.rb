@@ -37,7 +37,6 @@ def task_2(input)
   end
   result
 end
-
 =begin
 #SECOND TASK
 def task2(str2)
