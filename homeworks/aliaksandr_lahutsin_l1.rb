@@ -157,16 +157,16 @@ end
 
 # check task2
 
-def task2(text)
-    pse = ParserSecondsEvents.new(text)
-    pse.parse_logs
-end
+#def task2(text)
+#    pse = ParserSecondsEvents.new(text)
+#    pse.parse_logs
+#end
 
 # check task3
 
-def task3(text)
-    parse_string(text)
-end
+#def task3(text)
+#    parse_string(text)
+#end
 
 
 =begin
