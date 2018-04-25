@@ -24,20 +24,21 @@ class ParserLogs
         out
     end
    
-       def output_state
-        out = ""
+    def output_state
+        #out = ""
         #first = ""
+        a = []
         for i in text.split("\n")
             if i.include?('error') || i.include?('Error')
                 #first << "#{i}"                 
                 #out << "#{i}"
             else
                 array = i.split(' ')
-                out << array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase
+                a.push(array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase)
             end
         end
         #first + 
-        out.split('')
+        a
     end
 end
 
