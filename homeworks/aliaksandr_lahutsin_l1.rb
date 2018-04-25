@@ -25,26 +25,31 @@ class ParserLogs
     end
    
     def output_state
-        #out = ""
-        #first = ""
-        a = []
-        for i in text.split("\n")
-            if i.include?('error') || i.include?('Error')
-                #first << "#{i}"                 
-                #out << "#{i}"
-            else
-                i.each_line do |line|
-                    datetime = line.match(/\[(.*?)\]/)[1] # Returns dates
-                    ip_addres = line.match(/^\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/) # Retruns IPs
-                    endpoint_path = line.match(/"POST \/.*"/)[0].split[1].upcase
-                    a << "#{datetime} FROM: #{ip_addres} TO: #{endpoint_path}"
-                end
-            end
+        result = []
+        unless text.nil? || text == 0
+          errors = text.scan(/(?i).*error.*/) 
+          if !errors[0].nil?
+            text.sub!(errors[0] + "\n", '') 
+          end
+          begin
+              text.each_line do |line|
+                datetime = line.match(/\[(.*?)\]/)[1] 
+                ip_addres = line.match(/^\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/) 
+                endpoint_path = line.match(/"POST \/.*"/)[0].split[1].upcase
+                result << "#{datetime} FROM: #{ip_addres} TO: #{endpoint_path}"
+              end
+          result
+        rescue NoMethodError 
+          ''
+          end
         end
-        #first + 
-        a
+      end
+      def task_1(string)
+        result = string.scan(/(?i).*error.*/) 
+        !result.empty? ? result.first : ''
     end
 end
+
 
 
 #---------------------------------------------------------------------------------------------------
