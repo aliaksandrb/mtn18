@@ -1,22 +1,22 @@
 #######################################################
 #TASK1
 def task_1(input)
-  task1_list = ''
-  input.each_line do |lines|
-    task1_list << lines[0..-2] if (lines.downcase['error'])
+  task1 = ''
+  input.each_line do |line|
+    task1 << line[0..-2] if (line.downcase['error'])
   end
-  task1_list
+  task1
 end
 ######################################################
 #TASK2
 def task_2(input)
-  task2_list = []
-  input.each_line do |lines|
-    if (lines.match(/(?:\d{1,3}\.){3}\d{1,3} - - \[(.*?)\] "POST \/.* HTTP\/.*/))
-      task2_list << lines.split('[')[1].split(']')[0] + " FROM: " + lines.split[0] + " TO:" + lines.upcase.split('POST')[1].split('HTTP')[0][0..-2] if (lines.downcase.match("^(?!.*error).*$"))
+  task2 = []
+  input.each_line do |line|
+    if (line.match(/(?:\d{1,3}\.){3}\d{1,3} - - \[(.*?)\] "POST \/.* HTTP\/.*/))
+      task2 << line.split('[')[1].split(']')[0] + " FROM: " + line.split[0] + " TO:" + line.upcase.split('POST')[1].split('HTTP')[0][0..-2] if (line.downcase.match("^(?!.*error).*$"))
     end
   end
-  task2_list
+  task2
 end
 
 ######################################################
