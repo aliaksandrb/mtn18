@@ -63,11 +63,11 @@ class ParserLogs
         first = ""
         for i in text.split("\n")
             if i.include?('error') || i.include?('Error')
-                first << "#{i}" + "\n"                 
-                out << "#{i}" + "\n"
+                first << "#{i}"                 
+                out << "#{i}"
             else
                 array = i.split(' ')
-                out << array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase + "\n"
+                out << array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase
             end
         end
         first + out
