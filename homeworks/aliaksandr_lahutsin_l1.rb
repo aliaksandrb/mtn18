@@ -34,8 +34,8 @@ class ParserLogs
                 #out << "#{i}"
             else
                 i.each_line do |line|
-                    datetime = line.match(/\[(.*?)\]/)[1] 
-                    ip_addres = line.match(/^\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)
+                    datetime = line.match(/\[(.*?)\]/)[1] # Returns dates
+                    ip_addres = line.match(/^\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/) # Retruns IPs
                     endpoint_path = line.match(/"POST \/.*"/)[0].split[1].upcase
                     a << "#{datetime} FROM: #{ip_addres} TO: #{endpoint_path}"
                 end
