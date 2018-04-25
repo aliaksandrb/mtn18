@@ -1,12 +1,11 @@
 #!/usr/bin/env ruby
 require 'time'
-
+=begin
 str11 = %Q(10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
 10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
 2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>
 10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290
 )
-=begin
 str22 = %Q(2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
 2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
 2018-04-23 17:17:49.8 ubuntu-xenial[14319] Debug - docker event processed
@@ -22,7 +21,7 @@ def task_1(input)
   result = []
   input.each_line do |x|  
   if x.downcase.include?("error")
-    result << x[0 ..-1]
+    result << x[0 ..-3]
     end
   end
   result
@@ -55,15 +54,14 @@ def task2(str2)
   end
   result.first
 end
-
+=end
 #THIRD TASK
-def task3(str3)
+def task_4(input)
  sum = 0
-   str3.each_char {|n| sum += n.to_i}
+   input.each_char {|n| sum += n.to_i}
      sum
 end
-=end
-puts task_1(str11)
-puts task_2(str11)
+
+#puts task_2(str11)
 #puts task3(str33)
 
