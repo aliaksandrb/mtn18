@@ -1,53 +1,3 @@
-=begin 
-
---------------------------------------------------------------------------------------------
-1.1) Install Ruby 2.5.1 with RVM
---------------------------------------------------------------------------------------------
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-   curl -sSL https://get.rvm.io | bash -s stable
-   source ~/.rvm/scripts/rvm
-   source ~/.profile
-   rvm requirements
---------------------------------------------------------------------------------------------
-#
---------------------------------------------------------------------------------------------
-1.2) Create gemset mtn, run shell and set default
---------------------------------------------------------------------------------------------
-rvm gemset create mtn
-rvm gemset use 
-mnt --defaultrvm --default use ruby-2.5.1
---------------------------------------------------------------------------------------------
-#
---------------------------------------------------------------------------------------------
-1.3) Install gems bundler, pry, sqlite3
---------------------------------------------------------------------------------------------
-rvm gemset create mtn
-rvm gemset use 
-mnt --defaultrvm --default use ruby-2.5.1
---------------------------------------------------------------------------------------------
-#
---------------------------------------------------------------------------------------------
-10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
-10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
-2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: 
-System error: Undefined error: 0 - 0>
-10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290
-
-1.4) Create a method that parses the string and outputs it as requirements:
-1.4.1) Full text woth eror (with substring: 'eror' - any register)
-1.4.2) For every strings without mistakes output with requirements:
-FOR EXAMPLE "23/Apr/2018:20:30:39 +0300 FROM: 10.6.246.103 TO: /GRID/2/MESSAGES"
---------------------------------------------------------------------------------------------
-#
---------------------------------------------------------------------------------------------
-
-3. Дана произвольная строка, в которой есть буквы, цифры, кони, лоси..
-Вывести на экран сумму всех цифр из данной строки. (вещественные числа, типа 3.14 
-рассматриваются как 3 числа)
-
-=end
-
-
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 
@@ -58,13 +8,29 @@ class ParserLogs
         @text = text
     end
 
-    def output_state
+    def output_state_error
         out = ""
         #first = ""
         for i in text.split("\n")
             if i.include?('error') || i.include?('Error')
                 #first << "#{i}"                 
                 out << "#{i}"
+            else
+                #array = i.split(' ')
+                #out << array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase
+            end
+        end
+        #first + 
+        out
+    end
+   
+       def output_state
+        out = ""
+        #first = ""
+        for i in text.split("\n")
+            if i.include?('error') || i.include?('Error')
+                #first << "#{i}"                 
+                #out << "#{i}"
             else
                 array = i.split(' ')
                 out << array[3].to_s.delete('[') + " " + array[4].to_s.delete(']') + " " + "FROM: " + array[0].to_s + " TO: " + array[6].to_s.upcase
@@ -155,23 +121,27 @@ end
 
 def task_1(text)
     pl = ParserLogs.new(text)
+    pl.output_state_error
+end
+
+def task_2(text)
+    pl = ParserLogs.new(text)
     pl.output_state
 end
 
 # check task2
 
-def task_2(text)
+def task_3(text)
     pse = ParserSecondsEvents.new(text)
     pse.parse_logs
 end
 
 # check task3
 
-def task_3(text)
+def task_4(text)
     parse_string(text)
 end
 
-=begin
 
 puts task_1('''10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
 10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
@@ -179,6 +149,13 @@ puts task_1('''10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messa
 10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290
 ''')
 
+=begin
+
+puts task_2('''10.6.246.103 - - [23/Apr/2018:20:30:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0498
+10.6.246.101 - - [23/Apr/2018:20:30:42 +0300] "POST /grid/2/event HTTP/1.1" 200 - 0.2277
+2018-04-23 20:30:42: SSL error, peer: 10.6.246.101, peer cert: , #<Puma::MiniSSL::SSLError: System error: Undefined error: 0 - 0>
+10.6.246.101 - - [23/Apr/2018:20:29:39 +0300] "POST /grid/2/messages HTTP/1.1" 200 48 0.0290
+''')
 
 puts task_2('''2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - Calling core with action: event
 2018-04-23 17:17:49.7 ubuntu-xenial[14319] Debug - connecting to: 10.6.246.101
