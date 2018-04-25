@@ -18,10 +18,10 @@ str33 = %Q(jks3.14gdfg456)
 =end
 #FIRST TASK
 def task_1(input)
-  result = []
+  result = ""
   input.each_line do |x|  
   if x.downcase.include?("error")
-    result << x[0 ..-3]
+    result << x[0 ..-2]
     end
   end
   result
@@ -36,11 +36,11 @@ def task_2(input)
   end
   result
 end
-=begin
+
 #SECOND TASK
-def task2(str2)
+def task_3(input)
   result = []
-  str_arr = str2.split("\n")
+  str_arr = input.split("\n")
   str_arr.each_index do |n|  
     if str_arr[n].include?("Calling core with action")
       str_cut = str_arr[n+1, str_arr.length]
@@ -54,7 +54,7 @@ def task2(str2)
   end
   result.first
 end
-=end
+
 #THIRD TASK
 def task_4(input)
  sum = 0
