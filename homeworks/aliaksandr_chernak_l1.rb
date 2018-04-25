@@ -12,7 +12,6 @@ def task_2(logs)
   result_parse = []
   logs.each_line do |log|
     parser = log.scan(log_regex)[0]
-    result_parse << log if log.downcase.include? 'error'
     next if log.scan(log_regex)[0].nil?
     parse = "#{parser[1]} from: #{parser[0]} to: #{parser[3]}".upcase
     result_parse << parse
