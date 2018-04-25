@@ -31,7 +31,8 @@ def task_2(input)
   result = []
   input.each_line do |x|  
   unless x.downcase.include?("error")
-    result << ( x[/\[(.*?)\]/][1 ..-2] + " FROM: " + x[/\d+\.\d+\.\d+\.\d+/] + " TO: " + x[/\s\/(.*?)\s/][1 ..-2].upcase!)
+    result << line[/\[(.*?)\]/][1...-1] + " FROM: " + line[/(?:\d{1,3}\.){3}\d{1,3}/] + " TO: " + line.split(/\s/)[6].upcase
+    #result << ( x[/\[(.*?)\]/][1 ..-2] + " FROM: " + x[/\d+\.\d+\.\d+\.\d+/] + " TO: " + x[/\s\/(.*?)\s/][1 ..-2].upcase!)
     end
   end
   result
