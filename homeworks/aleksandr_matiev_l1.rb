@@ -32,7 +32,7 @@ def task_2(input)
   result = []
   input.each_line do |x|  
   unless x.downcase!.include?("error")
-    result << ( x[/\[(.*?)\]/][1 ..-2] + " FROM: " + x[/\d+\.\d+\.\d+\.\d+/] + " TO: " + x[/\s\/(.*?)\s/].upcase!)
+    result << ( x[/\[(.*?)\]/][1 ..-2] + " FROM: " + x[/\d+\.\d+\.\d+\.\d+/] + " TO: " + x[/\s\/(.*?)\s/][1 ..-2].upcase!)
     end
   end
   result
