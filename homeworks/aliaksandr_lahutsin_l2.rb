@@ -27,9 +27,13 @@ def task_2_2(input)
   array = []
   sub_hash = {}
   insert = YAML.safe_load input
-  insert.each do |key, value|
-    sub_hash = parse_values(value)
-    array << { key.to_sym => sub_hash }
+  if input == ""
+    ""
+  else
+    insert.each do |key, value|
+      sub_hash = parse_values(value)
+      array << { key.to_sym => sub_hash } 
+    end       
   end
   array
 end
