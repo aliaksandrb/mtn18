@@ -51,8 +51,6 @@ def parse_values(value)
       timeout = sub_value
     when 'pool'
       pool = sub_value
-    else
-      'I have no idea what to do with that, look at code and fix it!'
     end
   end
   sub_hash.store('magic_number'.to_sym, pool * timeout)
@@ -65,7 +63,7 @@ end
 
 class String
   def palindrome?
-    casecmp(reverse).zero?
+    casecmp(reverse) == 0
   end
 end
 
