@@ -3,12 +3,22 @@ def fib_r(a, b, n)
   if n < 1000
     n == 0 ? a : fib_r(b, a + b, n - 1)
   else
-    "foobar"
+    'hacked you'
   end
 end
 
 def fib(n)
   fib_r(0, 1, n)
+end
+
+def task_2_1(number)
+  if number > 0
+    (1..number).map { |n| fib(n) }
+  elsif number.zero?
+    [0]
+  elsif number < 0
+    []
+  end
 end
 
 require 'yaml'
