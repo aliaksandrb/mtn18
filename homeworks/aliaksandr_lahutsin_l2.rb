@@ -17,11 +17,9 @@ end
 require 'yaml'
 
 def task_2_2(input)
-  hash = YAML.load_file(input)
   array = []
   sub_hash = {}
-
-  hash.each do |key, value|
+  input.each do |key, value|
     sub_hash = parse_values(value)
     array << { key.to_sym => sub_hash }
   end
@@ -44,21 +42,15 @@ def parse_values(value)
       timeout = sub_value
     when 'pool'
       pool = sub_value
-    else
-      'I have no idea what to do with that, look at code and fix it!'
     end
   end
   sub_hash.store('magic_number'.to_sym, pool * timeout)
   sub_hash
 end
 
-puts task_2_2('file.yaml')
-
 def task_2_3(array)
   array.flatten.uniq.sort_by(&:-@)
 end
-
-task_2_3([7, 3, [4, 5, 1], 1, 9, [2, 8, 1]])
 
 class String
   def palindrome?
