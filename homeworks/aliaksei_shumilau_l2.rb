@@ -21,6 +21,5 @@ end
 ######################################################
 # Task_2.4 The row palindrome
 def task2_4(string)
-  string = string.downcase.scan(/\w/)
-  string == string.reverse
+  string == string.reverse.downcase.scan(/\w/)
 end
