@@ -29,7 +29,10 @@ def task_2_1(n)
   b = 1
   i = 0
 
-  return fib.shift if n < 0
+  if n < 0
+    fib.shift
+    return fib
+  end
 
   while i < n
     fib.push(b)
