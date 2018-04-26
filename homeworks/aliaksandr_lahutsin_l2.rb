@@ -1,17 +1,6 @@
 
-def task_2_1(number)
-  if number < 1
-    0
-  elsif number < 3
-    1
-  else
-    task_2_1(number - 1) + task_2_1(number - 2)
-  end
-  run_fibonacci(number)
-end
-
-def run_fibonacci(number)
-  (0..number).each { |number| task_2_1(number) }
+def task_2_1(n)
+  (0..n-2).inject([0, 1]) { |fib| fib << fib.last(2).inject(:+) }
 end
 
 require 'yaml'
