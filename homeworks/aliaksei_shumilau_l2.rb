@@ -4,12 +4,12 @@
 def fibo(n)
   a = 0
   b = 1
-  for i in 0..n
-    c=a+b
+  [0..n].each do |i|
+    c = a + b
     print "#{c} "
-    a=b
-    b=c
-end
+    a = b
+    b = c
+  end
 end
 
 ######################################################
