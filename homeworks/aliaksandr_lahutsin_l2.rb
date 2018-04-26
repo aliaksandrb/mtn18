@@ -1,6 +1,6 @@
 
 def task_2_1(n)
-  (0..n-2).inject([0, 1]) { |fib| fib << fib.last(2).inject(:+) }
+  (1..n-2).inject([0, 1]) { |fib| fib << fib.last(2).inject(:+) }
 end
 
 require 'yaml'
