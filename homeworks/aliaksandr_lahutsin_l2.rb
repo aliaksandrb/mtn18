@@ -60,6 +60,7 @@ def task_2_3(array)
   array.flatten.uniq.sort_by(&:-@)
 end
 
+# palindrome
 class String
   def palindrome?
     casecmp(reverse) == 0
