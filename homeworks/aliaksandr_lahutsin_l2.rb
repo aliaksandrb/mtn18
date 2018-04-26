@@ -11,14 +11,17 @@ def fib(n)
   fib_r(0, 1, n)
 end
 
-def task_2_1(number)
-  if number > 0
-    (1..number).map { |n| fib(n) }
-  elsif number.zero?
-    [0]
-  elsif number < 0
-    []
+require 'yaml'
+
+def task_2_2(input)
+  array = []
+  sub_hash = {}
+  insert = YAML.safe_load input
+  insert.each do |key, value|
+    sub_hash = parse_values(value)
+    array << { key.to_sym => sub_hash }
   end
+  array
 end
 
 
