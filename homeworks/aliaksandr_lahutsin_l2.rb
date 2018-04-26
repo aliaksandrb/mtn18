@@ -1,6 +1,6 @@
 
 def fib_r(a, b, n)
-  n.zero? fib_r(b, a + b, n - 1)
+  n == 0 ? a : fib_r(b, a + b, n - 1)
 end
 
 def fib(n)
@@ -8,10 +8,10 @@ def fib(n)
 end
 
 def task_2_1(number)
-  if number.zero?
-    [0]
-  else
+  if number > 0
     (1..number).map { |n| fib(n) }
+  else
+    [0]
   end
 end
 
