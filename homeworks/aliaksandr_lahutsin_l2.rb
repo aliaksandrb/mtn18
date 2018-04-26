@@ -34,7 +34,6 @@ def task_2_2(input)
   array
 end
 
-
 def parse_values(value)
   pool = 1
   timeout = 1000
