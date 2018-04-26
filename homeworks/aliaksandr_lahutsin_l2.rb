@@ -8,7 +8,11 @@ def fib(n)
 end
 
 def task_2_1(number)
-  p (1..number).map{ |n| fib(n) }
+  if number == 0
+    []
+  else
+    (1..number).map { |n| fib(n) }
+  end
 end
 
 def parse_values(value)
