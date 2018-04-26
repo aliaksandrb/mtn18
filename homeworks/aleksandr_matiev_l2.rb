@@ -50,7 +50,7 @@ def task_2_4(str)
   str.downcase.match? str.downcase.reverse
 end
 
-# p task_2_1(10)
+# p task_2_1(-1)
 # p task_2_2(str)
 # p task_2_3([1, 5, 9, 1, [2, 8, 6]])
 # p task_2_4('asdgdfgdfSa')
