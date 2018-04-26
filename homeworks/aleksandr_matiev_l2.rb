@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'time'
 require 'yaml'
-require 'colorize'
 def task_2_2(st)
   h = YAML.safe_load(st)
   res = []
