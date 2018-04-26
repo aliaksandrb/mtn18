@@ -11,3 +11,6 @@ def fib(n)
     puts fib.join(' ')
   end
 end
+
+######################################################
+# Task_2.2 Yaml_parcing
