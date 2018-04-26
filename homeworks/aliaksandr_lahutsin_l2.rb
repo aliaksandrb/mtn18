@@ -14,14 +14,10 @@ def run_fibonacci(number)
   (0..number).each { |number| task_2_1(number) }
 end
 
-require 'yaml'
-
 def task_2_2(input)
-  hash = YAML.load_file(input)
   array = []
   sub_hash = {}
-
-  hash.each do |key, value|
+  input.each do |key, value|
     sub_hash = parse_values(value)
     array << { key.to_sym => sub_hash }
   end
@@ -52,13 +48,9 @@ def parse_values(value)
   sub_hash
 end
 
-puts task_2_2('file.yaml')
-
 def task_2_3(array)
   array.flatten.uniq.sort_by(&:-@)
 end
-
-task_2_3([7, 3, [4, 5, 1], 1, 9, [2, 8, 1]])
 
 class String
   def palindrome?
