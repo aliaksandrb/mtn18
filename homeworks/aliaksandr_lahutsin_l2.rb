@@ -14,6 +14,8 @@ def run_fibonacci(number)
   (0..number).each { |number| task_2_1(number) }
 end
 
+require 'yaml'
+
 def task_2_2(input)
   array = []
   sub_hash = {}
