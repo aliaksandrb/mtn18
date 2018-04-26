@@ -14,7 +14,7 @@ end
 def task_2_1(number)
   if number > 0
     (1..number).map { |n| fib(n) }
-  elsif number.zero?
+  elsif number == 0
     [0]
   elsif number < 0
     []
