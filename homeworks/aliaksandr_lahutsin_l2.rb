@@ -1,6 +1,10 @@
 
 def fib_r(a, b, n)
-  n == 0 ? a : fib_r(b, a + b, n - 1)
+  if n < 1000
+    n == 0 ? a : fib_r(b, a + b, n - 1)
+  else
+    "foobar"
+  end
 end
 
 def fib(n)
@@ -13,9 +17,10 @@ def task_2_1(number)
   elsif number.zero?
     [0]
   elsif number < 0
-    []
+    [-1]
   end
 end
+
 
 def parse_values(value)
   pool = 1
