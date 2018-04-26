@@ -13,7 +13,7 @@ def task_2_1(number)
   elsif number.zero?
     [0]
   elsif number < 0
-    [-1]
+    []
   end
 end
 
