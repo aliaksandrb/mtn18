@@ -27,7 +27,7 @@ end
 
 def parse_values(value)
   pool = 1
-  timeout = 1
+  timeout = 1000
   sub_hash = {}
   value.each do |sub_key, sub_value|
     case sub_key
