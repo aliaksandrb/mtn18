@@ -14,3 +14,22 @@ end
 
 ######################################################
 # Task_2.2 Yaml_parcing
+
+
+
+
+######################################################
+# Task_2.3 Returning an array
+
+
+
+
+
+
+
+######################################################
+# Task_2.4 The row palindrome
+def task_2_4(string)
+  return true if string == string.reverse
+  false
+end
