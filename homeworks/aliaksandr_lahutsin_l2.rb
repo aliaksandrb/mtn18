@@ -9,7 +9,7 @@ end
 
 def task_2_1(number)
   if number == 0
-    []
+    [0]
   else
     (1..number).map { |n| fib(n) }
   end
