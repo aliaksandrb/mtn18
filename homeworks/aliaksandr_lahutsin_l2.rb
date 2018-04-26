@@ -1,18 +1,14 @@
 
-def task_2_1(n)
-  (1..n-2).inject([0, 1]) { |fib| fib << fib.last(2).inject(:+) }
+def fib_r(a, b, n)
+  n == 0 ? a : fib_r(b, a + b, n - 1)
 end
 
-require 'yaml'
+def fib(n)
+  fib_r(0, 1, n)
+end
 
-def task_2_2(input)
-  array = []
-  sub_hash = {}
-  input.each do |key, value|
-    sub_hash = parse_values(value)
-    array << { key.to_sym => sub_hash }
-  end
-  array
+def task_2_1(number)
+  p (1..number).map{ |n| fib(n) }
 end
 
 def parse_values(value)
