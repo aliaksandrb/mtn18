@@ -2,14 +2,14 @@
 # Task_2.1 Fibonacci_numbers
 def task_2_1(n)
   return [n] if (0..1).cover? n
-  res = []
-  x = 1
-  z = 1
+  result = []
+  a = 1
+  b = 1
   n.times do
-    res << z
-    x, z = z, x + z
+    result << a
+    a, b = b, a + b
   end
-  res
+  result
 end
 
 ######################################################
