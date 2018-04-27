@@ -21,7 +21,7 @@ def task_3_3(range)
   array = []
   range.each do |k|
     modulus = k.modulo 7
-    if modulus == 3 && k > 7 && counter.zero?
+    if modulus == 3 && k > 7 && counter == 0
       array << k
       counter += 1
     end
