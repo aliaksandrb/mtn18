@@ -18,15 +18,15 @@ end
 
 def task_3_3(range)
   counter = 0
-  array = []
+  oboje = ''
   range.each do |k|
     modulus = k.modulo 7
     if modulus == 3 && k > 7 && counter == 0
-      array << k
+      oboje = k
       counter += 1
     end
   end
-  array
+  oboje
 end
 
 def task_3_4(_first, _second, *args)
