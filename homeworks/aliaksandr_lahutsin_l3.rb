@@ -21,7 +21,7 @@ def task_3_3(range)
   oboje = ''
   range.each do |k|
     modulus = k.modulo 7
-    if modulus == 3 && k > 7 && counter == 0
+    if modulus == 3 && k > 7 && counter == 0 && k > 99
       oboje = k
       counter += 1
     end
