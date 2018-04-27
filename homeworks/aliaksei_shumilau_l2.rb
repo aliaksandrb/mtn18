@@ -3,11 +3,11 @@
 def task_2_1(n)
   return [n] if (0..1).cover? n
   result = []
-  a = 1
-  b = 1
+  x = 1
+  z = 1
   n.times do
-    result << a
-    a, b = b, a + b
+    result << x
+    x, z = z, x + z
   end
   result
 end
