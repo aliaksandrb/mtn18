@@ -23,11 +23,7 @@ def task_3_3(range)
 end
 
 def task_3_4(_first, _second, *args)
-  if block_given?
-    args.each { |v| yield(v) }
-  else
-    puts 'ERROR'
-  end
+  block_given? ? args.each { |element| yield(element) } : 'ERROR'
 end
 
 def task_3_5(array)
