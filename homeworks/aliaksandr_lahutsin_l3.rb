@@ -8,7 +8,7 @@ def task_3_1(generate_proc_object)
   time = Benchmark.measure do
     generate_proc_object
   end
-  (time.real.to_f * 1_000_000).round(1)
+  time.real.to_f.round(1)
 end
 
 def task_3_2(array, digit = 0)
