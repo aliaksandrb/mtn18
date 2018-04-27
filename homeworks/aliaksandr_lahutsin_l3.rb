@@ -40,7 +40,9 @@ end
 def task_3_5(array)
   result = []
   array.each do |element|
-    result << element if yield(element) == true
+    if element.even? && yield(element)
+      result << element
+    end
   end
   result
 end
