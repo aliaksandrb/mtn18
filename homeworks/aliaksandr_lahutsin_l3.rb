@@ -1,7 +1,7 @@
 def task_3_1(generate_proc_object)
-  start_up_time = Time.now
+  ltime = Time.now
   generate_proc_object.call
-  (Time.now - t_begin).round(1)
+  (Time.now - ltime).round(1)
 end
 
 def task_3_2(array, digit = 0)
