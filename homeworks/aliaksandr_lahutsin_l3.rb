@@ -1,14 +1,7 @@
-require 'benchmark'
-
-def generate_proc_object
-  proc { 'return from foo from inside proc' }
-end
-
 def task_3_1(generate_proc_object)
-  time = Benchmark.measure do
-    generate_proc_object
-  end
-  time.real.to_f.round(1)
+  start_up_time = Time.now
+  generate_proc_object.call
+  (Time.now - t_begin).round(1)
 end
 
 def task_3_2(array, digit = 0)
