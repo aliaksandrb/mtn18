@@ -1,13 +1,11 @@
 require_relative 'aws'
 require_relative 'azure'
 
-# Kulibin call and make configure 
+# Kulibin call and make configure
 class Kulibin
   include AwsPlugin
   include AzurePlugin
-  attr_accessor :cpu, 
-                :ram,
-                :version
+  attr_accessor :cpu, :ram, :version
 
   def initialize
     @collection = {}
