@@ -1,5 +1,4 @@
 require_relative 'server'
-
 # rubocop:disable AccessorMethodName
 # class AWS < Server
 class Aws < Server
