@@ -4,11 +4,7 @@ require_relative 'server'
 # class AWS < Server
 class Aws < Server
   Const TYPE == 'aws'.freeze
-  attr_accessor :deployed_by, 
-                :name,
-                :spawned_by,
-                :ip_address,
-                :type
+  attr_accessor :deployed_by, :name, :spawned_by, :ip_address, :type
 
   def self.new_server
     new
