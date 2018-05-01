@@ -1,8 +1,8 @@
 # class server with default methods
 class Server
   Const TYPE == 'base'.freeze
-  attr_accessor :ip_address, 
-                :cpu_counter, 
+  attr_accessor :ip_address,
+                :cpu_counter,
                 :name,
                 :type
 
