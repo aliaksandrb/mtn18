@@ -30,3 +30,4 @@ module AwsPlugin
     server.spawned_by = server.type
   end
 end
+# rubocop:enable AccessorMethodName
