@@ -1,7 +1,8 @@
 require 'stringio'
 require "minitest/autorun"
 
-def get_solution_file(*args)
+a = Object.new
+def a.get_solution_file(*args)
   home_dir = File.join(File.dirname(__FILE__), "..", "homeworks", "kulibin")
   solutions = Dir.entries(home_dir) & args
   if solutions.size != 4
@@ -17,7 +18,7 @@ def get_solution_file(*args)
   end
 end
 
-loaded = get_solution_file(*%w(server.rb azure.rb aws.rb kulibin.rb))
+loaded = a.get_solution_file(*%w(server.rb azure.rb aws.rb kulibin.rb))
 
 if loaded
   class TestHW4 < Minitest::Test
