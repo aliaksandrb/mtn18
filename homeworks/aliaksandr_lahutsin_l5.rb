@@ -7,7 +7,7 @@ class SuperScript < Script
       File.open(path, 'w') { |file| file.puts line }
     end
   end
-  
+
   def self.run(**args)
     super()
     block_given? ? result = yield : ''
