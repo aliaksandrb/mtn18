@@ -31,9 +31,9 @@ class SuperScript < Script
       array = []
       array << super << out(name, yield.to_s)
     end
-    array
+    #array
   rescue StandardError => ex
     array << out_error(name, ex.to_s)
-    array
+    #array
   end
 end
