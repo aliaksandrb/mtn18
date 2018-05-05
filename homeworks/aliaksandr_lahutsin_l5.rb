@@ -1,27 +1,19 @@
 # class SuperScript
 class SuperScript < Script
-  def self.out(name, result)
-    "#{Time.now} #{name[:name]} #{result}"
+  def self.write(path, line)
+    if path.nil?
+      puts line
+    else
+      File.open(path, 'w') { |file| file.puts line }
+    end
   end
-  
-  def self.out_error(name, ex)
-    "ERROR: #{Time.now} #{name[:name]} #{ex}"
-  end
-  
-  def self.run(name = nil, _stdout_log = nil, _stderr_log = nil)
+
+  def self.run(**args)
     super()
-    result = yield
-  rescue StandardError => ex
-    if name[:stderr_log].nil?
-      puts out_error(name, ex)
-    else
-      File.open(name[:stderr_log], 'w') { |file| file.puts out_error(name[:name], ex) }
-    end
+    block_given? ? result = yield : ''
+  rescue StandardError => e
+    SuperScript.write(args[:stderr_log], "ERROR: #{Time.now} #{args[:name]} #{e}")
   else
-    if name[:stdout_log].nil?
-      puts out(name, result)
-    else
-      File.open(name[:stderr_log], 'w') { |file| file.puts out(name[:name], result) }
-    end
+    SuperScript.write(args[:stdout_log], "#{Time.now} #{args[:name]} #{result}")
   end
 end
