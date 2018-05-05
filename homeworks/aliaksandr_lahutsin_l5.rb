@@ -1,31 +1,27 @@
 # class SuperScript
 class SuperScript < Script
-  def self.out_error(name, result)
-    #"ERROR: #{Time.now} #{name} #{result}"
-    ''
-  end
-
   def self.out(name, result)
-    #"#{Time.now}#{name}#{result}"
-    "#{name} #{result}"
+    "#{Time.now} #{name[:name]} #{result}"
   end
-
-  def self.write_file(name, args, result)
-    args.each do |path|
-      output_file = File.open(path, 'w')
-      output_file.puts out(name, result.to_s)
-    end
+  
+  def self.out_error(name, result, ex)
+    "ERROR: #{Time.now} #{name[:name]} #{ex}"
   end
-
-  def self.run(name, *args)
-    if !args.empty?
-      write_file(name, args, yield)
-    else
-      puts super
-      puts out(name, yield.to_s)
-    end
-    array
+    
+  def self.run(name = nil, _stdout_log = nil, _stderr_log = nil)
+    super()
+    result = yield
   rescue StandardError => ex
-    puts out_error(name, ex.to_s)
+    if name[:stderr_log].nil?
+      puts out_error(name, result, ex)
+    else
+      File.open(name[:stderr_log], 'w') { |file| file.puts out(name, result, ex) }
+    end
+  else
+    if name[:stdout_log].nil?
+      puts out(name, result)
+    else
+      File.open(name[:stdout_log], 'w') { |file| file.puts out(name, result) }
+    end
   end
 end
