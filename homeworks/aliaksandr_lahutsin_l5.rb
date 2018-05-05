@@ -10,11 +10,11 @@ end
 # class SuperScript
 class SuperScript < Script
   def self.out_error(name, result)
-    "ERROR: #{Time.now} #{name} #{result}"
+    "ERROR: #{Time.now}#{name}#{result}"
   end
 
   def self.out(name, result)
-    "#{Time.now} #{name} #{result}"
+    "#{Time.now}#{name}#{result}"
   end
 
   def self.write_file(name, args, result)
@@ -31,9 +31,9 @@ class SuperScript < Script
       array = []
       array << super << out(name, yield.to_s)
     end
-    #array
+    array
   rescue StandardError => ex
     array << out_error(name, ex.to_s)
-    #array
+    array
   end
 end
