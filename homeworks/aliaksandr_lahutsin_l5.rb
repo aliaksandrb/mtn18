@@ -1,11 +1,13 @@
 # class SuperScript
 class SuperScript < Script
   def self.out_error(name, result)
-    "ERROR: #{Time.now}#{name}#{result}"
+    #"ERROR: #{Time.now} #{name} #{result}"
+    ''
   end
 
   def self.out(name, result)
-    "#{Time.now}#{name}#{result}"
+    #"#{Time.now}#{name}#{result}"
+    "#{name} #{result}"
   end
 
   def self.write_file(name, args, result)
