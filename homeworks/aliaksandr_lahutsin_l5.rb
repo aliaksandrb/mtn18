@@ -20,8 +20,8 @@ class SuperScript < Script
     super()
     block_given? ? result = yield : ''
   rescue StandardError => ex
-    write(args[:stderr_log], out(args[:name], ex)
+    write(args[:stderr_log], out(args[:name], ex))
   else
-    write(args[:stdout_log], out(args[:name], result)
+    write(args[:stdout_log], out(args[:name], result))
   end
 end
