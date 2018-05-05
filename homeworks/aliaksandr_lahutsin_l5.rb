@@ -13,6 +13,7 @@ class SuperScript < Script
       "#{Time.now} #{args[:name]} #{args[:result]}"
     else
       "ERROR: #{Time.now} #{args[:name]} #{args[:ex]}"
+    end
   end
 
   def self.run(**args)
