@@ -19,12 +19,11 @@ class SuperScript < Script
     if !args.empty?
       write_file(name, args, yield)
     else
-      array = []
-      array << super << out(name, yield.to_s)
+      puts super
+      puts out(name, yield.to_s)
     end
     array
   rescue StandardError => ex
-    array << out_error(name, ex.to_s)
-    array
+    puts out_error(name, ex.to_s)
   end
 end
