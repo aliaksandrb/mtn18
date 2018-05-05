@@ -4,8 +4,15 @@ class SuperScript < Script
     "#{Time.now} #{name[:name]} #{result}"
   end
   
-  def self.out_error(name, result, ex)
+  def self.out_error(name, ex)
     "ERROR: #{Time.now} #{name[:name]} #{ex}"
+  end
+  
+  def self.write_file(name, _result = nil, _ex = nil)
+    args.each do |path|
+      output_file = File.open(path, 'w')
+      output_file.puts out(name, result.to_s, ex.to_s)
+    end
   end
     
   def self.run(name = nil, _stdout_log = nil, _stderr_log = nil)
@@ -15,13 +22,13 @@ class SuperScript < Script
     if name[:stderr_log].nil?
       puts out_error(name, result, ex)
     else
-      File.open(name[:stderr_log], 'w') { |file| file.puts out(name, result, ex) }
+      write_file(name, stdout_log)
     end
   else
     if name[:stdout_log].nil?
       puts out(name, result)
     else
-      File.open(name[:stdout_log], 'w') { |file| file.puts out(name, result) }
+      write_file(name, stdout_log, result)
     end
   end
 end
