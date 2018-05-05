@@ -7,13 +7,20 @@ class SuperScript < Script
       File.open(path, 'w') { |file| file.puts line }
     end
   end
+  
+  def self.out(**args)
+    if args[:ex].nil?
+      "#{Time.now} #{args[:name]} #{args[:result]}"
+    else
+      "ERROR: #{Time.now} #{args[:name]} #{args[:ex]}"
+  end
 
   def self.run(**args)
     super()
     block_given? ? result = yield : ''
-  rescue StandardError => e
-    SuperScript.write(args[:stderr_log], "ERROR: #{Time.now} #{args[:name]} #{e}")
+  rescue StandardError => ex
+    write(args[:stderr_log], out(args[:name], ex)
   else
-    SuperScript.write(args[:stdout_log], "#{Time.now} #{args[:name]} #{result}")
+    write(args[:stdout_log], out(args[:name], result)
   end
 end
