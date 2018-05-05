@@ -1,3 +1,4 @@
+# class SuperScript
 class SuperScript < Script
   def self.write(path, line)
     if path.nil?
@@ -16,5 +17,5 @@ class SuperScript < Script
   else
     str = "#{Time.now} #{args[:name]} #{result}"
     SuperScript.write(args[:stdout_log], str)
-  end  
+  end
 end
