@@ -20,15 +20,15 @@ class SuperScript < Script
     result = yield
   rescue StandardError => ex
     if name[:stderr_log].nil?
-      puts out_error(name, result, ex)
+      puts out_error(name, ex)
     else
-      write_file(name, stdout_log)
+      write_file(name, name[:stderr_log], ex)
     end
   else
     if name[:stdout_log].nil?
       puts out(name, result)
     else
-      write_file(name, stdout_log, result)
+      write_file(name, name[:stdout_log], result)
     end
   end
 end
