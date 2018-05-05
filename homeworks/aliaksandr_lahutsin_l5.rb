@@ -1,11 +1,11 @@
 class SuperScript < Script
   def self.write(path, line)
-      if path.nil?
-        puts line
-      else
-        File.open(path, 'w') { |file| file.puts line }
-      end
+    if path.nil?
+      puts line
+    else
+      File.open(path, 'w') { |file| file.puts line }
     end
+  end
   
   def self.run(**args)
     super()
