@@ -1,12 +1,3 @@
-# class Script
-class Script
-  attr_accessor :name
-
-  def self.run(name)
-    @name = name
-  end
-end
-
 # class SuperScript
 class SuperScript < Script
   def self.out_error(name, result)
