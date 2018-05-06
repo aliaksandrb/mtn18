@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby .
 
-# SuperScript class method with conditions
+# SuperScript class with conditions
 class SuperScript < Script
   def self.run(name, _stdout_log = nil, _stderr_log = nil)
     super()
